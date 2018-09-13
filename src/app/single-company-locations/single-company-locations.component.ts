@@ -40,7 +40,7 @@ export class SingleCompanyLocationsComponent implements OnInit {
     );
   }
 
-  updateCompanyLocation(data: JSON) {
+  updateCompanyLocation(data: any) {
     var id: any;
     var location: any;
     const req = this.companyService.postLocation(data);
