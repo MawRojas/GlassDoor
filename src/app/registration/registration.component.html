@@ -1,3 +1,16 @@
-<p>
-  registration works!
-</p>
+  <table class="table table-hover">
+    <tr class="head-dark">
+      <th>ID</th>
+      <th>Job title</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Job Description</th>
+    </tr>
+    <tr *ngFor="let reg of registrationList">
+        <td><a [routerLink]="[reg._id]">{{ reg._id }}</a></td>
+      <td>{{reg.job_title}}</td>
+      <td>{{reg.city}}</td>
+      <td>{{reg.state}}</td>
+      <td>{{reg.job_description}}</td>
+    </tr>
+  </table>
