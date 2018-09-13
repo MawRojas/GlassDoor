@@ -24,7 +24,9 @@ const routes: Routes = [
   {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
   {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
-  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent}
+  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'reviews', component: ReviewsComponent}
 ];
 
 @NgModule({

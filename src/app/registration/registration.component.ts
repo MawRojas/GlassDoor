@@ -8,9 +8,9 @@ import { RegistrationService } from '../services/registration.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
   pageName = 'home';
   registrationList: any;
+
   constructor(private registrationService: RegistrationService ) { }
 
   ngOnInit() {
