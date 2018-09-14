@@ -16,12 +16,13 @@ export class SingleCompanyDescriptionComponent implements OnInit {
   company: any;
   companyForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
       this.id = res.id;
     });
+  }
+
+  ngOnInit() {
     this.companyService.getCompanyId(this.id).subscribe(
       data =>  {
         console.log('Data:', data)
