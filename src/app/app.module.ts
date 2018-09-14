@@ -34,6 +34,7 @@ import { PaymentMethodsComponent } from './payment-methods/payment-methods.compo
 import { CloseAccountComponent } from './close-account/close-account.component';
 import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
 import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
+import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component';
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent},
   {path: 'company_details/updates/:id', component: SingleCompanyUpdatesComponent},
   {path: 'company_details/photos/:id', component: SingleCompanyPhotosComponent},
+  {path: 'company_details/logo/:id', component: SingleCompanyLogoComponent},
   {path:'account_settings', component:BasicInfoComponent},
   {path:'password_reset', component:PasswordComponent},
   {path: 'account_info', component:UserSettingsComponent},
@@ -81,7 +83,8 @@ const routes: Routes = [
     BasicInfoComponent,
     AccountInfoComponent,
     CloseAccountComponent,
-    SingleCompanyPhotosComponent
+    SingleCompanyPhotosComponent,
+    SingleCompanyLogoComponent
   ],
   imports: [
     BrowserModule,

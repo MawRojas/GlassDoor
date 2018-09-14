@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { CompanyDetailsService } from '../services/company-details.service';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-single-company-photos',
@@ -23,7 +22,7 @@ export class SingleCompanyPhotosComponent implements OnInit {
   selectedFile: File;
   selectedCategory:string = 'employer-photos';
 
-  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location, public sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe(res => { 
