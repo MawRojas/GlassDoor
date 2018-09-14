@@ -124,4 +124,27 @@ export class CompanyDetailsService {
     console.log(data);
     return this.http.post(url, data, httpOptions);
   }
+
+  postPicture(data: any, name: string) {
+    var url = "http://localhost:3030/file/upload/" + name;
+    console.log(url);
+    console.log(data);
+    return this.http.post(url, data, {observe: 'response', responseType: 'text'});
+  }
+
+  getPicturePath(name: string) {
+    var url = "http://localhost:3030/file/path/" + name;
+    return this.http.get(url, {responseType: 'text'});
+  }
+
+  postCompanyPhoto(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var url = "http://localhost:3030/company/photo/";
+    console.log(data);
+    return this.http.post(url, data, httpOptions);
+  }
 }

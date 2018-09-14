@@ -33,6 +33,7 @@ import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.com
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { CloseAccountComponent } from './close-account/close-account.component';
 import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
+import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
   {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent},
   {path: 'company_details/updates/:id', component: SingleCompanyUpdatesComponent},
+  {path: 'company_details/photos/:id', component: SingleCompanyPhotosComponent},
   {path:'account_settings', component:BasicInfoComponent},
   {path:'password_reset', component:PasswordComponent},
   {path: 'account_info', component:UserSettingsComponent},
@@ -78,7 +80,8 @@ const routes: Routes = [
     SubscriptionsComponent,
     BasicInfoComponent,
     AccountInfoComponent,
-    CloseAccountComponent
+    CloseAccountComponent,
+    SingleCompanyPhotosComponent
   ],
   imports: [
     BrowserModule,

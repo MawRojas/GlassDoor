@@ -7,6 +7,7 @@
       <th>Benefits</th>
       <th>Awards</th>
       <th>Updates</th>
+      <th>Photos</th>
     </thead>
     <tr *ngFor="let company of companies">
       <td><a [routerLink]="[company._id]">{{ company._id }}</a></td>
@@ -16,5 +17,6 @@
       <td><a [routerLink]="['benefits', company._id]">Click here</a></td>
       <td><a [routerLink]="['awards', company._id]">Click here</a></td>
       <td><a [routerLink]="['updates', company._id]">Click here</a></td>
+      <td><a [routerLink]="['photos', company._id]">Click here</a></td>
     </tr>
   </table>
