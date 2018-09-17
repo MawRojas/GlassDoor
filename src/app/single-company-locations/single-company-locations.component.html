@@ -11,7 +11,7 @@
         <th>Address</th>
         <th>Zip</th>
       </thead>
-      <tr *ngFor="let location of locations">
+      <tr *ngFor="let location of locations" (click)="removeLocation(location.name)">
         <td>{{ location.name }}</td>
         <td>{{ location.city }}</td>
         <td>{{ location.address }}</td>
