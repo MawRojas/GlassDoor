@@ -36,24 +36,10 @@ export class RoutingComponentComponent implements OnInit {
     this.collapseFlag = !this.collapseFlag
   }
 
-  toggleNavbarItemSelected(id: string) {
-    console.log(id);
-    if (!this.selectedSectionID) {
-      console.log('First time');
-      this.selectedSectionID = id;
-      console.log(this.selectedSectionID);
-      document.getElementById(this.selectedSectionID).classList.add('selected');
-      return;
-    }
-    document.getElementById(this.selectedSectionID).classList.remove('selected');
-    this.selectedSectionID = id;
-    document.getElementById(this.selectedSectionID).classList.add('selected');
-  }
-
   onActivate(component) {
     this.activePage = component.pageName;
     this.companyID = component.id;
-    //this.toggleNavbarItemSelected(component.navbarID);
+    this.selectedSectionID = component.navbarID;
   }
 
 }

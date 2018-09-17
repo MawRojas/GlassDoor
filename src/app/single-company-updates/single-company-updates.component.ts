@@ -16,6 +16,7 @@ export class SingleCompanyUpdatesComponent implements OnInit {
   company: any;
   companyForm: FormGroup;
   updates: any;
+  navbarID: string = "navbar-item-company-updates";
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
@@ -38,6 +39,11 @@ export class SingleCompanyUpdatesComponent implements OnInit {
         this.updates = this.company.company_updates;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   getNumberCharacters(id: string) {

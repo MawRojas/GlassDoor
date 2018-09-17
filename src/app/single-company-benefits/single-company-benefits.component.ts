@@ -44,6 +44,7 @@ export class SingleCompanyBenefitsComponent implements OnInit {
     {title: "Occupational Accident Insurance", description: "Add a Description", country: "", id: 9, selected: false},
     {title: "Health Care On-Site", description: "Add a Description", country: "", id: 10, selected: false},
   ];
+  navbarID: string = "navbar-item-company-benefits";
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
@@ -69,6 +70,11 @@ export class SingleCompanyBenefitsComponent implements OnInit {
         });
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   onSubmit() {

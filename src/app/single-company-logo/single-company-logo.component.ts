@@ -16,6 +16,7 @@ export class SingleCompanyLogoComponent implements OnInit {
   company: any;
   companyForm: FormGroup;
   selectedFile: File;
+  navbarID: string = "navbar-item-company-logo";
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) {
     this.route.params.subscribe(res => { 
@@ -36,6 +37,11 @@ export class SingleCompanyLogoComponent implements OnInit {
         });
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   onSubmit() {

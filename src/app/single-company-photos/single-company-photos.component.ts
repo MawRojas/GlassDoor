@@ -45,6 +45,11 @@ export class SingleCompanyPhotosComponent implements OnInit {
         this.photos = this.company.company_photos;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   onFileChanged(event) {

@@ -16,6 +16,8 @@ export class SingleCompanyLocationsComponent implements OnInit {
   company: any;
   companyForm: FormGroup;
   locations: any;
+  navbarID: string = "navbar-item-company-locations";
+
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
       this.id = res.id;
@@ -39,6 +41,11 @@ export class SingleCompanyLocationsComponent implements OnInit {
         this.locations = this.company.company_locations;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   updateCompanyLocation(data: any) {

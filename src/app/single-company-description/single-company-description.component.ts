@@ -15,6 +15,7 @@ export class SingleCompanyDescriptionComponent implements OnInit {
   id: string;
   company: any;
   companyForm: FormGroup;
+  navbarID: string = "navbar-item-company-about";
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
@@ -37,6 +38,11 @@ export class SingleCompanyDescriptionComponent implements OnInit {
         (<HTMLInputElement>document.getElementById("input-company-description")).value = this.company.mission;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   onSubmit() {

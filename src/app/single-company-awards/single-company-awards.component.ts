@@ -16,6 +16,7 @@ export class SingleCompanyAwardsComponent implements OnInit {
   companyForm: FormGroup;
   years_list: any[];
   awards: any[];
+  navbarID: string = "navbar-item-company-awards";
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
@@ -42,7 +43,13 @@ export class SingleCompanyAwardsComponent implements OnInit {
         });
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
   }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
+  }
+
 
   generateYearsFoundedArray() {
     var startYear = 1670;

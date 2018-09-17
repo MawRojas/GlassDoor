@@ -129,6 +129,11 @@ export class SingleCompanyDetailsComponent implements OnInit {
         this.newCeo = this.company.company_ceos;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   generateYearsFoundedArray() {
