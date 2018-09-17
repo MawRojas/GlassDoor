@@ -22,6 +22,8 @@ export class SingleCompanyPhotosComponent implements OnInit {
   selectedFile: File;
   selectedCategory:string = 'employer-photos';
   navbarID: string = 'navbar-item-company-photos';
+  photoSubmittedFlag: boolean = false;
+  itemRemoved: boolean = false;
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
@@ -54,9 +56,19 @@ export class SingleCompanyPhotosComponent implements OnInit {
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
+    this.photoSubmittedFlag = true;
   }
 
   onSubmit() {
+    if (this.photoSubmittedFlag) {
+      this.uploadPhoto();
+    } else {
+      this.updateRemovedPhoto();
+    }
+    location.reload();
+  }
+
+  uploadPhoto() {
     var picture: any;
     var company_photo: any;
 
@@ -80,7 +92,7 @@ export class SingleCompanyPhotosComponent implements OnInit {
           var company_photos = {
             "company_photos": []
           }
-          this.company.company_photos.forEach(element => {
+          this.photos.forEach(element => {
             company_photos.company_photos.push(element._id)
           });
           company_photos.company_photos.push(company_photo._id);
@@ -89,7 +101,18 @@ export class SingleCompanyPhotosComponent implements OnInit {
           update_req.subscribe();
         });
     });
-    location.reload();
+  }
+
+  updateRemovedPhoto() {
+    var company_photos = {
+      "company_photos": []
+    }
+    this.photos.forEach(element => {
+      company_photos.company_photos.push(element._id)
+    });
+    const update_req = this.companyService.updateCompany(this.company._id, company_photos);
+    update_req.subscribe();
+    update_req.subscribe();
   }
 
   changeSelectedCategory(cat: string) {
@@ -117,7 +140,7 @@ export class SingleCompanyPhotosComponent implements OnInit {
 
   getEmployerPhotos() {
     var arr: any[] = [];
-    this.company.company_photos.forEach(element => {
+    this.photos.forEach(element => {
       if (element.category == 'Employer') arr.push(element);
     });
     return arr;
@@ -125,7 +148,7 @@ export class SingleCompanyPhotosComponent implements OnInit {
 
   getCommunityPhotos() {
     var arr: any[] = [];
-    this.company.company_photos.forEach(element => {
+    this.photos.forEach(element => {
       if (element.category == 'Community') arr.push(element);
     });
     return arr;
@@ -135,4 +158,24 @@ export class SingleCompanyPhotosComponent implements OnInit {
     return "http://localhost:3030/file/get/" + name;
   }
 
+  removePhoto(name: string) {
+    var index = this.findPhotoIndex(name);
+    if (index > -1) {
+      console.log("Removing: " + this.photos[index].source + 'from ' +  this.photos[index].category);
+      this.photos.splice(index, 1);
+      this.itemRemoved = true;
+    }
+  }
+
+  findPhotoIndex(source: string) {
+    const category = this.photo_categories[this.getCategoryIndex()];
+    for (var i = 0; i < this.photos.length; i++) {
+      if(this.photos[i].source == source && this.photos[i].category == category) return i;
+    }
+    return -1
+  }
+
+  getCategoryIndex() {
+    return (this.selectedCategory == 'employer-photos') ? 0 : 1;
+  }
 }
