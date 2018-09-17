@@ -21,6 +21,7 @@ export class SingleCompanyPhotosComponent implements OnInit {
   photo_categories = ['Employer', 'Community'];
   selectedFile: File;
   selectedCategory:string = 'employer-photos';
+  navbarID: string = 'navbar-item-company-photos';
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
@@ -88,7 +89,18 @@ export class SingleCompanyPhotosComponent implements OnInit {
 
   changeSelectedCategory(cat: string) {
     this.selectedCategory = cat;
+    this.toggleSelectedClassCategory();
     console.log(this.selectedCategory);
+  }
+
+  toggleSelectedClassCategory() {
+    if (this.selectedCategory == 'employer-photos') {
+      document.getElementById(this.selectedCategory).classList.add('selected');
+      document.getElementById('community-photos').classList.remove('selected');
+    } else {
+      document.getElementById(this.selectedCategory).classList.add('selected');
+      document.getElementById('employer-photos').classList.remove('selected');
+    }
   }
 
   getPhotosList() {

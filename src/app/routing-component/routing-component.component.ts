@@ -11,6 +11,7 @@ export class RoutingComponentComponent implements OnInit {
   collapseFlag: boolean = false;
   activePage = "home";
   companyID: string;
+  selectedSectionID: string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -35,21 +36,24 @@ export class RoutingComponentComponent implements OnInit {
     this.collapseFlag = !this.collapseFlag
   }
 
+  toggleNavbarItemSelected(id: string) {
+    console.log(id);
+    if (!this.selectedSectionID) {
+      console.log('First time');
+      this.selectedSectionID = id;
+      console.log(this.selectedSectionID);
+      document.getElementById(this.selectedSectionID).classList.add('selected');
+      return;
+    }
+    document.getElementById(this.selectedSectionID).classList.remove('selected');
+    this.selectedSectionID = id;
+    document.getElementById(this.selectedSectionID).classList.add('selected');
+  }
+
   onActivate(component) {
-    // this.route.params.subscribe(res => { 
-    //   this.companyID = res.id;
-    // },
-    // err => console.log(err),
-    // () => {
-    //   this.activePage = component.pageName;
-    //   this.companyID = component.id;
-    //   console.log(component.pageName);
-    //   console.log(component.id);
-    // });
     this.activePage = component.pageName;
     this.companyID = component.id;
-    console.log(component.pageName);
-    console.log(component.id);
+    //this.toggleNavbarItemSelected(component.navbarID);
   }
 
 }

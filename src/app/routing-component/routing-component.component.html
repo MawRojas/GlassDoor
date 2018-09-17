@@ -20,33 +20,48 @@
 </nav>
 <nav class="navbar-primary" id="navbar-main" [ngSwitch]="activePage">
   <ul  *ngSwitchCase="'home'"class="navbar-primary-menu"  data-spy="affix">
+    <li>
+      <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Employer Branding</span></a>
+      <a a class='nav-link' routerLink='/account_settings'><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
+      <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Settings</span></a>
+      <a href="#"><span class="glyphicon glyphicon-film"></span><span class="nav-label">Notification</span></a>
+      <a href="#"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Monitor</span></a>
+    </li>
+  </ul>
+<ul  *ngSwitchCase="'company-details'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
   <li>
-    <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Company Details</span></a>
+    <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Employer Branding</span></a>
+    <div class="navbar-section-container">
+        <div class="navbar-element-title">Basic Info</div>
+        <li>
+          <a [routerLink]="['/company_details', companyID]"  id="navbar-item-company-details"><span class="nav-label">Company Details</span></a>
+          <a [routerLink]="['/company_details/logo', companyID]"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Logo</span></a>
+          <a [routerLink]="['/company_details/description', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">About Your Company</span></a>
+          <a [routerLink]="['/company_details/locations', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Company Locations</span></a>
+        </li>
+    </div>
+    <div class="navbar-section-container">
+      <div class="navbar-element-title">Branded Content</div>
+      <li>
+          <a [routerLink]="['/company_details/benefits', companyID]"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Benefits</span></a>
+          <a [routerLink]="['/company_details/awards', companyID]"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Awards</span></a>
+          <a [routerLink]="['/company_details/photos', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Photos</span></a>
+          <a [routerLink]="['/company_details/updates', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Company Updates</span></a>
+      </li>
+    </div>
+    <div class="navbar-section-container">
+      <div class="navbar-element-title">Free Employer Tools</div>
+      <li>
+          <a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Open Company</span></a>
+          <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Badges</span></a>
+          <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Upgrade Profile</span></a>
+      </li>
+    </div>
     <a a class='nav-link' routerLink='/account_settings'><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
     <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Settings</span></a>
     <a href="#"><span class="glyphicon glyphicon-film"></span><span class="nav-label">Notification</span></a>
     <a href="#"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Monitor</span></a>
   </li>
-</ul>
-<ul  *ngSwitchCase="'company-details'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
-  <div class="navbar-section-container">
-      <div class="navbar-element-title">Basic Info</div>
-      <li>
-        <a [routerLink]="['/company_details', companyID]"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Company Details</span></a>
-        <a [routerLink]="['/company_details/logo', companyID]"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Logo</span></a>
-        <a [routerLink]="['/company_details/description', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">About Your Company</span></a>
-        <a [routerLink]="['/company_details/locations', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Company Locations</span></a>
-      </li>
-  </div>
-  <div class="navbar-section-container">
-    <div class="navbar-element-title">Branded Content</div>
-    <li>
-        <a [routerLink]="['/company_details/benefits', companyID]"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Benefits</span></a>
-        <a [routerLink]="['/company_details/awards', companyID]"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Awards</span></a>
-        <a [routerLink]="['/company_details/photos', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Photos</span></a>
-        <a [routerLink]="['/company_details/updates', companyID]"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Company Updates</span></a>
-      </li>
-  </div>
 </ul>
 <ul  *ngSwitchCase="'account-info'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
   <div class="navbar-section-container">
@@ -59,8 +74,6 @@
         <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
       </li>
     </div>
-  
-      
 </ul>
 <ul  *ngSwitchCase="'email-alert'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
   <div class="navbar-section-container">

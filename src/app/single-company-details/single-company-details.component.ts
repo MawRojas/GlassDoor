@@ -46,6 +46,7 @@ export class SingleCompanyDetailsComponent implements OnInit {
   newCompetitors = [];
   itemDeleted: boolean = false;
   newCeo: any;
+  navbarID: string = "navbar-item-company-details";
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
