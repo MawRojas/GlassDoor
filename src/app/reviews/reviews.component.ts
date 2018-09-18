@@ -8,7 +8,7 @@ import { ReviewsService } from '../services/reviews.service';
 })
 export class ReviewsComponent implements OnInit {
 
-  pageName = 'home';
+  pageName = 'review-page';
   reviewList: any;
   constructor(private reviewService: ReviewsService) { }
 

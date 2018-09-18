@@ -6,10 +6,21 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
-
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { PaymentInfoComponent } from './payment-info/payment-info.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { EmailsAlertsComponent } from './emails-alerts/emails-alerts.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
+import { EmailPreferencesComponent } from './email-preferences/email-preferences.component';
+import { PasswordComponent } from './password/password.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { BillingAddressComponent } from './billing-address/billing-address.component';
+import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { CloseAccountComponent } from './close-account/close-account.component';
+import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
 
@@ -17,6 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
+import { EmployeeReviewComponent } from './employee-review/employee-review.component';
+import { InterviewReviewComponent } from './interview-review/interview-review.component';
+import { RequestReviewComponent } from './request-review/request-review.component';
 
 //Add your routes here
 const routes: Routes = [
@@ -26,8 +40,19 @@ const routes: Routes = [
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
   {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'reviews', component: ReviewsComponent}
-];
+  {path: 'reviews', component: ReviewsComponent},
+  {path:'account_settings', component:BasicInfoComponent},
+  {path:'password_reset', component:PasswordComponent},
+  {path: 'account_info', component:UserSettingsComponent},
+  {path:'notifications',component:EmailsAlertsComponent},
+  {path:'payment_settings', component:BillingAddressComponent},
+  {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
+  {path:'add_subscription',component:SubscriptionsComponent},
+  {path: 'card_details', component:CreditCardInfoComponent},
+  {path: 'employee_reviews', component: EmployeeReviewComponent},
+  {path: 'interview_reviews', component: InterviewReviewComponent},
+  {path: 'request_review', component: RequestReviewComponent},
+];  
 
 @NgModule({
   declarations: [
@@ -36,11 +61,34 @@ const routes: Routes = [
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
+    UserSettingsComponent,
+
     RoutingComponentComponent,
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent,
     SingleCompanyLocationsComponent,
-    SingleCompanyBenefitsComponent
+    SingleCompanyBenefitsComponent,
+    
+    PasswordComponent,
+    PaymentInfoComponent,
+    SubscriptionsComponent,
+    EmailPreferencesComponent,
+    EmailsAlertsComponent,
+    PaymentMethodsComponent,
+    BillingAddressComponent,
+    CreditCardInfoComponent,
+    CurrentSubscriptionPlanComponent,
+    SubscriptionsComponent,
+    BasicInfoComponent,
+    AccountInfoComponent,
+    RoutingComponentComponent,
+    SingleCompanyDetailsComponent,
+    SingleCompanyDescriptionComponent,
+    EmployeeReviewComponent,
+    InterviewReviewComponent,
+    RequestReviewComponent
+
+
   ],
   imports: [
     BrowserModule,

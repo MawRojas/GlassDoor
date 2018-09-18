@@ -1,17 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     background-color: #e5e5e5;
-    background-image: url("/assets/registration_backdrop.jpg");
-    background-size: 1500px 1200px;
-    background-repeat: no-repeat;
-    
 }
-.main-content {
-    margin-top: 60px;
-    margin-left: 200px;
-    padding: 20px;
-    
-  }
+
 .navbar {
     position: fixed;
     display: -ms-flexbox;
@@ -32,8 +23,4 @@ body {
     color: lightgray;
     font-size: 15px;
     cursor: pointer;
-}
-
-.container {
-    padding: 3px;
 }

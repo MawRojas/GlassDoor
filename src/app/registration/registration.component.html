@@ -1,17 +1,40 @@
-
-<table class="table table-hover">
-    <tr class="head-dark">
-      <th>ID</th>
-      <th>Job title</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Job Description</th>
-    </tr>
-    <tr *ngFor="let reg of registrationList">
-        <td><a [routerLink]="[reg._id]">{{ reg._id }}</a></td>
-      <td>{{reg.job_title}}</td>
-      <td>{{reg.city}}</td>
-      <td>{{reg.state}}</td>
-      <td>{{reg.job_description}}</td>
-    </tr>
-  </table>
+<div class="FormsModule">
+  <h2>Post a Job</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <h3>Job Details</h3>
+        <label>Company Name:</label> 
+        <input type="text" class = "form-control" formControlName="company_name"/>
+    </div>
+    <div class="form-group">
+        <label>Job Title:</label> 
+        <input type="text" class = "form-control" formControlName="job_title">
+    </div>
+    <div class="form-group">
+        <p>Location of Job:</p> 
+        <label>City</label> 
+        <input type="text" class = "form-control" formControlName="city"/>
+        <label>State</label> 
+        <input type="text" class = "form-control" formControlName="state"/>
+    </div>
+    <div class="form-group">
+      <h3>Job Description</h3> 
+      <input type="text" class = "form-control" formControlName="job_description"/>
+    </div>
+    <div class="form-group">
+      <h3>Optional Details</h3> 
+      <p>Adding more details to your job description can improve your chances of attracting candidates.</p>
+      <div ng-app="MyApp" ng-controller="MyController">
+        <input type="button" value="Add Street Address" ng-click="ShowHide()" />
+        <div ng-show = "IsVisible">
+          <p>Adding a full street address provides more visibility to candidates.</p>
+          <label>Street Address (Optional)</label>
+          <input type="text" class = "form-control" formControlName="zipcode"/>
+          <label>Zipcode (Optional)</label> 
+          <input type="text" class = "form-control" formControlName="zipcode"/>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
