@@ -33,19 +33,20 @@ export class SingleCompanyBenefitsComponent implements OnInit {
   ,"Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];  
   
   benefits_list = [
-    {title: "Health Insurance", description: "Add a Description", country: "", id: 1, selected: false},
-    {title: "Dental Insurance", description: "Add a Description", country: "", id: 2, selected: false},
-    {title: "Flexible Spending Account", description: "Add a Description", country: "", id: 3, selected: false},
-    {title: "Vision Insurance", description: "Add a Description", country: "", id: 4, selected: false},
-    {title: "Health Savings Account (HSA)", description: "Add a Description", country: "", id: 5, selected: false},
-    {title: "Life Insurance", description: "Add a Description", country: "", id: 6, selected: false},
-    {title: "Supplemental Life Insurance", description: "Add a Description", country: "", id: 7, selected: false},
-    {title: "Disability Insurance", description: "Add a Description", country: "", id: 8, selected: false},
-    {title: "Occupational Accident Insurance", description: "Add a Description", country: "", id: 9, selected: false},
-    {title: "Health Care On-Site", description: "Add a Description", country: "", id: 10, selected: false},
+    {title: "Health Insurance", description: "Add a Description", country: "", id: 1},
+    {title: "Dental Insurance", description: "Add a Description", country: "", id: 2},
+    {title: "Flexible Spending Account", description: "Add a Description", country: "", id: 3},
+    {title: "Vision Insurance", description: "Add a Description", country: "", id: 4},
+    {title: "Health Savings Account (HSA)", description: "Add a Description", country: "", id: 5},
+    {title: "Life Insurance", description: "Add a Description", country: "", id: 6},
+    {title: "Supplemental Life Insurance", description: "Add a Description", country: "", id: 7},
+    {title: "Disability Insurance", description: "Add a Description", country: "", id: 8},
+    {title: "Occupational Accident Insurance", description: "Add a Description", country: "", id: 9},
+    {title: "Health Care On-Site", description: "Add a Description", country: "", id: 10},
   ];
   navbarID: string = "navbar-item-company-benefits";
 
+<<<<<<< HEAD
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
       this.id = res.id;
@@ -75,28 +76,27 @@ export class SingleCompanyBenefitsComponent implements OnInit {
 
   ngOnDestroy() {
     document.getElementById(this.navbarID).classList.remove('selected');
+=======
+  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
+
+
+  ngOnInit() {
+    const controls = this.benefits_list.map(c => new FormControl(false));
+
+    this.form = this._formBuilder.group({
+      benefits_list: new FormArray(controls),
+      countries: [this.country_list[198]]
+    });
+>>>>>>> Satya
   }
 
   onSubmit() {
+
     const selectedBenefitsIds = this.form.value.benefits_list
-    .map((v, i) => v ? (this.benefits_list[i].id - 1) : null)
+    .map((v, i) => v ? this.benefits_list[i].id : null)
     .filter(v => v !== null);
 
     console.log(selectedBenefitsIds);
-    console.log('Country:' + this.form.value.countries);
-    var company_benefits = {
-      "company_benefits": []
-    };
-    this.updateSelectedBenefits(selectedBenefitsIds);
-    this.updateBenefitList(selectedBenefitsIds, selectedBenefitsIds[0], 0, company_benefits);
-    location.reload();
-  }
-
-  updateSelectedBenefits(selectedBenefitsIds: any[]) {
-    selectedBenefitsIds.forEach(element => {
-      this.benefits_list[element].country = this.form.value.countries;
-      console.log(this.benefits_list[element]);
-    });
   }
 
   saveEditedDescription() {
@@ -109,40 +109,5 @@ export class SingleCompanyBenefitsComponent implements OnInit {
     this.selected_benefit_index = index;
     console.log('Editing: ' + this.benefits_list[this.selected_benefit_index].title)
     return false;
-  }
-
-  updateBenefitList(selectedBenefitsIds: any[], index: number, count: number, company_benefits: any) {
-    if ((count + 1) > selectedBenefitsIds.length) return;
-    var id: any;
-    var benefit: any;
-    console.log('Index: ' + index);
-    console.log('Count: ' + count);
-    const req = this.companyService.postBenefit(this.benefits_list[index])
-    req.subscribe(data => {
-      console.log(data);
-      benefit = data;
-      id = benefit._id;
-    },
-    err => console.log(err),
-    () => {
-      console.log(company_benefits);
-      company_benefits.company_benefits.push(id);
-      const update_req = this.companyService.updateBenefit(this.company._id, company_benefits);
-      update_req.subscribe();
-      update_req.subscribe();
-      count++;
-      this.updateBenefitList(selectedBenefitsIds, selectedBenefitsIds[count], count, company_benefits);
-    });
-  }
-
-  updateBenefitsData() {
-    this.company.company_benefits.forEach(listed => {
-      this.benefits_list.forEach(element => {
-        if (listed.title == element.title) {
-          element.selected = true;
-          element.description = listed.description;
-        }
-      });
-    });
   }
 }

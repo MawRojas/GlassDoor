@@ -6,10 +6,8 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
-
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
 
@@ -54,7 +52,7 @@ const routes: Routes = [
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
   {path:'add_subscription',component:SubscriptionsComponent}
-];
+
 
 @NgModule({
   declarations: [
@@ -63,6 +61,8 @@ const routes: Routes = [
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
+    UserSettingsComponent,
+
     RoutingComponentComponent,
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent,
@@ -83,10 +83,13 @@ const routes: Routes = [
     SubscriptionsComponent,
     BasicInfoComponent,
     AccountInfoComponent,
+
     CloseAccountComponent,
     SingleCompanyPhotosComponent,
     SingleCompanyLogoComponent,
     AwardsPipePipe
+
+
   ],
   imports: [
     BrowserModule,
