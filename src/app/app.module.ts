@@ -6,7 +6,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
-
+import { OrderPipe } from './ngx-order.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
 
@@ -36,6 +36,15 @@ import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/cu
 import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
 import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component';
 import { AwardsPipePipe } from './pipes/awards-pipe.pipe';
+import { ApplicantsPipe } from './applicants.pipe';
+import { ApplicantsComponent } from './applicants/applicants.component';
+import { JobPerformanceTitleComponent } from './job-performance-title/job-performance-title.component';
+import { JobSlotsComponent } from './job-slots/job-slots.component';
+import { JobPerformanceDayComponent } from './job-performance-day/job-performance-day.component';
+import { SlottedJobsComponent } from './slotted-jobs/slotted-jobs.component';
+import { UnslottedJobsComponent } from './unslotted-jobs/unslotted-jobs.component';
+
+
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
@@ -53,12 +62,19 @@ const routes: Routes = [
   {path:'notifications',component:EmailsAlertsComponent},
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
-  {path:'add_subscription',component:SubscriptionsComponent}
+  {path:'add_subscription',component:SubscriptionsComponent},
+  {path: 'applicants', component: ApplicantsComponent},
+  {path: 'job-performance-day', component: JobPerformanceDayComponent},
+  {path: 'job-performance-title', component: JobPerformanceTitleComponent},
+  {path: 'job-slots', component: JobSlotsComponent},
+  {path: 'slotted-jobs', component: SlottedJobsComponent},
+  {path: 'unslotted-jobs', component: UnslottedJobsComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    OrderPipe,
     CompanyDetailsComponent,
     RegistrationComponent,
     ReviewsComponent,
@@ -86,7 +102,14 @@ const routes: Routes = [
     CloseAccountComponent,
     SingleCompanyPhotosComponent,
     SingleCompanyLogoComponent,
-    AwardsPipePipe
+    AwardsPipePipe,
+    ApplicantsPipe,
+    ApplicantsComponent,
+    JobPerformanceTitleComponent,
+    JobSlotsComponent,
+    JobPerformanceDayComponent,
+    SlottedJobsComponent,
+    UnslottedJobsComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +117,7 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [OrderPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
