@@ -1,0 +1,12 @@
+.category-selector {
+    cursor: pointer;
+}
+
+.company-photo, .container-picture {
+    width: 100%;
+    height: 100%;
+}
+
+.selected {
+    color: green;
+}

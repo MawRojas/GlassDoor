@@ -10,11 +10,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
 import { SingleCompanyAwardsComponent } from './single-company-awards/single-company-awards.component';
+import { SingleCompanyUpdatesComponent } from './single-company-updates/single-company-updates.component';
+
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { PaymentInfoComponent } from './payment-info/payment-info.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
@@ -28,7 +31,9 @@ import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.com
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { CloseAccountComponent } from './close-account/close-account.component';
 import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
-import { SingleAccountDetailsComponent } from './single-account-details/single-account-details.component';
+import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
+import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component';
+import { AwardsPipePipe } from './pipes/awards-pipe.pipe';
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
@@ -37,17 +42,18 @@ const routes: Routes = [
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
   {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
   {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent},
-  {path:'account_settings', component:AccountInfoComponent},
+  {path: 'company_details/updates/:id', component: SingleCompanyUpdatesComponent},
+  {path: 'company_details/photos/:id', component: SingleCompanyPhotosComponent},
+  {path: 'company_details/logo/:id', component: SingleCompanyLogoComponent},
+  {path:'account_settings', component:BasicInfoComponent},
   {path:'password_reset', component:PasswordComponent},
-  {path: 'account_info', component:AccountInfoComponent},
+  {path: 'account_info', component:UserSettingsComponent},
   {path:'notifications',component:EmailsAlertsComponent},
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
-  {path:'user_information', component: BasicInfoComponent},
-  {path:'email_preferences', component:EmailPreferencesComponent},
-  {path:'settings_home', component:UserSettingsComponent}
-];
+  {path:'add_subscription',component:SubscriptionsComponent}
 
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,12 +61,15 @@ const routes: Routes = [
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
+    UserSettingsComponent,
+
     RoutingComponentComponent,
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent,
     SingleCompanyLocationsComponent,
     SingleCompanyBenefitsComponent,
     SingleCompanyAwardsComponent,
+    SingleCompanyUpdatesComponent,
     UserSettingsComponent,  
     PasswordComponent,
     PaymentInfoComponent,
@@ -74,7 +83,13 @@ const routes: Routes = [
     SubscriptionsComponent,
     BasicInfoComponent,
     AccountInfoComponent,
-    SingleAccountDetailsComponent,
+
+    CloseAccountComponent,
+    SingleCompanyPhotosComponent,
+    SingleCompanyLogoComponent,
+    AwardsPipePipe
+
+
   ],
   imports: [
     BrowserModule,

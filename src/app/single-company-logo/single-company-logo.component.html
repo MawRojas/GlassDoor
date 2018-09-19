@@ -1,0 +1,47 @@
+<div *ngIf="company">
+    <div class="bg-white">
+        <h2>Logo & Cover Image</h2>
+        <h6>This is how your cover image and logo will appear on your company profile page</h6>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary">Upgrade to change cover photo</button>
+        </div>
+        <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" *ngIf="company">
+          <div class="form-row">
+              <div class="d-flex flex-row col form-group">
+                <div class="d-flex flex-column">
+                    <label>Change Logo</label>
+                    <label for="select-picture" class="btn btn-primary">Choose Picture</label>
+                    <input type="file" class="form-control" formControlName="logo" (change)="onFileChanged($event)"  id="select-picture" style="display: none"/> 
+                </div>
+                <div class="details" *ngIf="selectedFile">{{selectedFile.name}}</div>
+              </div>
+          </div>
+          <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <div class="d-flex flex-row border-bottom border-secondary">
+            <img [src]="getPhotoURL(company.logo)" alt="company logo" class="company-logo-full">
+            <div  class="align-self-end"><h2><strong>{{ company.name }}</strong></h2></div>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="d-flex flex-column align-self-end">
+              <img [src]="getPhotoURL(company.logo)" alt="company logo" class="company-logo-100">
+              <div class="details">100x100</div>
+          </div>
+          <div class="d-flex flex-column align-self-end">
+              <img [src]="getPhotoURL(company.logo)" alt="company logo" class="company-logo-75">
+              <div class="details">75x75</div>
+          </div>
+          <div class="d-flex flex-column align-self-end">
+              <img [src]="getPhotoURL(company.logo)" alt="company logo" class="company-logo-50">
+              <div class="details">50x50</div>
+          </div>
+          <div class="d-flex flex-column align-self-end">
+              <img [src]="getPhotoURL(company.logo)" alt="company logo" class="company-logo-30">
+              <div class="details">30x30</div>
+          </div>
+        </div>
+    </div>
+</div>
+  

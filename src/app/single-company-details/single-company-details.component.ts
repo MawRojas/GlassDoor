@@ -46,13 +46,15 @@ export class SingleCompanyDetailsComponent implements OnInit {
   newCompetitors = [];
   itemDeleted: boolean = false;
   newCeo: any;
+  navbarID: string = "navbar-item-company-details";
 
-  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
       this.id = res.id;
     });
+  }
+
+  ngOnInit() {
     this.companyService.getCompanyId(this.id).subscribe(
       data =>  {
         console.log('Data:', data)
@@ -127,6 +129,11 @@ export class SingleCompanyDetailsComponent implements OnInit {
         this.newCeo = this.company.company_ceos;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
+  }
+
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
   }
 
   generateYearsFoundedArray() {

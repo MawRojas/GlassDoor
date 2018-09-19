@@ -20,137 +20,136 @@
 </nav>
 <nav class="navbar-primary" id="navbar-main" [ngSwitch]="activePage">
   <ul  *ngSwitchCase="'home'"class="navbar-primary-menu"  data-spy="affix">
-  <li>
-    <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Company Details</span></a>
-    <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
-    <a a class='nav-link' routerLink='/settings_home'><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Settings</span></a>
-    <a href="#"><span class="glyphicon glyphicon-film"></span><span class="nav-label">Notification</span></a>
-    <a href="#"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Monitor</span></a>
-  </li>
-</ul>
-<ul  *ngSwitchCase="'company-details'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
-  <div class="navbar-section-container">
-      <div class="navbar-element-title">Basic Info</div>
-      <li>
-        <a [routerLink]="['/company_details', companyID]"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Company Details</span></a>
-        <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Logo</span></a>
-        <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">About Your Company</span></a>
-        <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Company Locations</span></a>
-      </li>
-  </div>
-  <div class="navbar-section-container">
-    <div class="navbar-element-title">Branded Content</div>
     <li>
-        <a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Benefits</span></a>
-        <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Awards</span></a>
-        <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Photos</span></a>
-        <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Company Updates</span></a>
-      </li>
-  </div>
-</ul>
-<ul  *ngSwitchCase="'account-info'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
-  <div class="navbar-section-container">
-      <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
+      <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Employer Branding</span></a>
+      <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
+      <a a class='nav-link' routerLink='/account_settings' ><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Settings</span></a>
+      <a href="#"><span class="glyphicon glyphicon-film"></span><span class="nav-label">Notification</span></a>
+      <a href="#"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Monitor</span></a>
+    </li>
+  </ul>
+<ul  *ngSwitchCase="'company-details'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
+  <li>
+    <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Employer Branding</span></a>
+    <div class="navbar-section-container">
+        <div class="navbar-element-title">Basic Info</div>
+        <li>
+          <a [routerLink]="['/company_details', companyID]"  id="navbar-item-company-details"><span class="nav-label">Company Details</span></a>
+          <a [routerLink]="['/company_details/logo', companyID]" id="navbar-item-company-logo"><span class="nav-label">Logo</span></a>
+          <a [routerLink]="['/company_details/description', companyID]" id="navbar-item-company-about"><span class="nav-label">About Your Company</span></a>
+          <a [routerLink]="['/company_details/locations', companyID]" id="navbar-item-company-locations"><span class="nav-label">Company Locations</span></a>
+        </li>
+    </div>
+    <div class="navbar-section-container">
+      <div class="navbar-element-title">Branded Content</div>
       <li>
-        <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
-        <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
-        <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
-        <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-        <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-        <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
+          <a [routerLink]="['/company_details/benefits', companyID]" id="navbar-item-company-benefits"><span class="nav-label">Benefits</span></a>
+          <a [routerLink]="['/company_details/awards', companyID]" id="navbar-item-company-awards"><span class="nav-label">Awards</span></a>
+          <a [routerLink]="['/company_details/photos', companyID]" id="navbar-item-company-photos"><span class="nav-label">Photos</span></a>
+          <a [routerLink]="['/company_details/updates', companyID]" id="navbar-item-company-updates"><span class="nav-label">Company Updates</span></a>
       </li>
     </div>
-  
-      
-</ul>
-<ul  *ngSwitchCase="'email-alert'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
-  <div class="navbar-section-container">
-    <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
+    <div class="navbar-section-container">
+      <div class="navbar-element-title">Free Employer Tools</div>
       <li>
-          <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
-          <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
-          <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
-          <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-          <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-          <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
-        </li>
-    </div>      
-</ul>
+          <a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Open Company</span></a>
+          <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Badges</span></a>
+          <a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Upgrade Profile</span></a>
+      </li>
+    </div>
+    </li>
+  </ul>
+      
+
+
 
 <ul  *ngSwitchCase="'billing-address'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
   <div class="navbar-section-container">
-    <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
+      <div class="navbar-element-title">User Settings</div>
       <li>
           <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
           <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
           <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
           <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-          <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-          <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
+          <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
         </li>
-    </div>
-</ul>
-
-<ul  *ngSwitchCase="'subscribe'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
-  <div class="navbar-section-container">
-    <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
-      <li>
-          <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
-          <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
-          <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
-          <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-          <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-          <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
-
-      </li>
     </div>
   
       
 </ul>
+
 <ul  *ngSwitchCase="'password-reset'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
   <div class="navbar-section-container">
-    <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
+      <div class="navbar-element-title">User Settings</div>
       <li>
           <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
           <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
           <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
           <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-          <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-          <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
+          <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
         </li>
-    </div>
+      </div>
 </ul>
 
 <ul  *ngSwitchCase="'user-info'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
     <div class="navbar-section-container">
-      <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
+        <div class="navbar-element-title">User Settings</div>
         <li>
           <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
           <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
           <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
           <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-          <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-          <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
-        </li>
-    </div>     
-</ul>
-
-<ul  *ngSwitchCase="'email-choices'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
-    <div class="navbar-section-container">
-      <div class="navbar-element-title"><a a class='nav-link' routerLink='/settings_home'>User Settings</a></div>
-        <li>
-          <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
-          <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
-          <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
-          <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
-          <a a class="nav-link" routerLink="/user_information"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">User Information</span></a>
-          <a a class="nav-link" routerLink="/email_preferences"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Email Preferences</span></a>
+          <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
         </li>
     </div>
+    
+        
+</ul>
+<ul  *ngSwitchCase="'email-alert'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
+    <div class="navbar-section-container">
+        <div class="navbar-element-title">User Settings</div>
+        <li>
+            <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
+            <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
+            <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
+            <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
+            <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
+          </li>
+      </div>
+    
+        
+</ul>
+<ul  *ngSwitchCase="'billing-address'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
+    <div class="navbar-section-container">
+        <div class="navbar-element-title">User Settings</div>
+        <li>
+            <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
+            <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
+            <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
+            <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
+            <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
+          </li>
+      </div>
+    
+        
+</ul>
+<ul  *ngSwitchCase="'subscribe'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
+    <div class="navbar-section-container">
+        <div class="navbar-element-title">User Settings</div>
+        <li>
+            <a a class="nav-link" routerLink="/account_settings"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Account Settings</span></a>
+            <a  a class="nav-link" routerLink="/payment_settings"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Payment Methods</span></a>
+            <a a class="nav-link" routerLink="/subscriptions"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Subscriptions</span></a>
+            <a a class="nav-link" routerLink="/notifications"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Notifications</span></a>
+            <a a class="nav-link" routerLink="/password_reset"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Reset Password</span></a>          
+  
+        </li>
+      </div>
+    
+        
 </ul>
 
 </nav>
-
 <div class="main-content">
   <router-outlet  (activate)='onActivate($event)'></router-outlet>
 </div>

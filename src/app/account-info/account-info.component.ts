@@ -77,7 +77,7 @@ export class AccountInfoComponent implements OnInit {
     submitData.account=this.account;
     const req=this.accountService.updateAccount(this.newAccount.id, this.newFirstName);
     req.subscribe();
-
+ 
   }
 
  

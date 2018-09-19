@@ -16,12 +16,16 @@ export class SingleCompanyLocationsComponent implements OnInit {
   company: any;
   companyForm: FormGroup;
   locations: any;
-  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
+  navbarID: string = "navbar-item-company-locations";
+  itemRemoved: boolean = false;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { 
     this.route.params.subscribe(res => { 
       this.id = res.id;
     });
+  }
+
+  ngOnInit() {
     this.companyService.getCompanyId(this.id).subscribe(
       data =>  {
         console.log('Data:', data)
@@ -38,9 +42,14 @@ export class SingleCompanyLocationsComponent implements OnInit {
         this.locations = this.company.company_locations;
       }
     );
+    document.getElementById(this.navbarID).classList.add('selected');
   }
 
-  updateCompanyLocation(data: JSON) {
+  ngOnDestroy() {
+    document.getElementById(this.navbarID).classList.remove('selected');
+  }
+
+  updateCompanyLocation(data: any) {
     var id: any;
     var location: any;
     const req = this.companyService.postLocation(data);
@@ -55,7 +64,7 @@ export class SingleCompanyLocationsComponent implements OnInit {
         "company_locations": []
       };
       console.log(company_locations);
-      this.company.company_locations.forEach(element => {
+      this.locations.forEach(element => {
         company_locations.company_locations.push(element._id);
       });
       company_locations.company_locations.push(id);
@@ -65,14 +74,52 @@ export class SingleCompanyLocationsComponent implements OnInit {
     });
   }
 
+  updateRemovedLocation() {
+    var company_locations = {
+      "company_locations": []
+    };
+    console.log(company_locations);
+    this.locations.forEach(element => {
+      company_locations.company_locations.push(element._id);
+    });
+    const update_req = this.companyService.updateLocation(this.company._id, company_locations);
+    update_req.subscribe();
+    update_req.subscribe();
+  }
+
+  removeLocation(name: string) {
+    var index = this.findLocationIndex(name);
+    if (index > -1) {
+      console.log("Removing: " + this.locations[index].name);
+      this.locations.splice(index, 1);
+      this.itemRemoved = true;
+    }
+  }
+
+  findLocationIndex(name: string) {
+    for (var i = 0; i < this.locations.length; i++) {
+      if(this.locations[i].name == name) return i;
+    }
+    return -1
+  }
+
   onSubmit() {
-    var submitData = this.companyForm.value;
-    this.updateCompanyLocation(submitData);
+    if (this.hasPostedLocation()) {
+      var submitData = this.companyForm.value;
+      this.updateCompanyLocation(submitData);
+    } else {
+      this.updateRemovedLocation();
+    }
 
     location.reload();
   }
 
   showSubmitButton(){
-    return (this.companyForm.controls['name'].touched && this.companyForm.controls['name'].valid) || (this.companyForm.controls['address'].touched && this.companyForm.controls['address'].valid) || (this.companyForm.controls['city'].touched && this.companyForm.controls['city'].valid) || (this.companyForm.controls['zip_code'].touched && this.companyForm.controls['zip_code'].valid);
+    return (this.hasPostedLocation() || this.itemRemoved);
   }
+
+  hasPostedLocation() {
+    return (this.companyForm.controls['name'].touched && this.companyForm.controls['name'].valid) && (this.companyForm.controls['address'].touched && this.companyForm.controls['address'].valid) && (this.companyForm.controls['city'].touched && this.companyForm.controls['city'].valid) && (this.companyForm.controls['zip_code'].touched && this.companyForm.controls['zip_code'].valid)
+  }
+
 }

@@ -16,7 +16,7 @@ export class CompanyDetailsService {
     return this.http.get("http://localhost:3030/company/company/" + id);
   }
 
-  updateCompany(id: string, data: JSON) {
+  updateCompany(id: string, data: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -112,5 +112,39 @@ export class CompanyDetailsService {
     console.log(data);
     var url: string = ("http://localhost:3030/company/company/" + companyId);
     return this.http.put(url, data, httpOptions);
+  }
+
+  postUpdate(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var url = "http://localhost:3030/company/update/";
+    console.log(data);
+    return this.http.post(url, data, httpOptions);
+  }
+
+  postPicture(data: any, name: string) {
+    var url = "http://localhost:3030/file/upload/" + name;
+    console.log(url);
+    console.log(data);
+    return this.http.post(url, data, {observe: 'response', responseType: 'text'});
+  }
+
+  getPicturePath(name: string) {
+    var url = "http://localhost:3030/file/path/" + name;
+    return this.http.get(url, {responseType: 'text'});
+  }
+
+  postCompanyPhoto(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var url = "http://localhost:3030/company/photo/";
+    console.log(data);
+    return this.http.post(url, data, httpOptions);
   }
 }
