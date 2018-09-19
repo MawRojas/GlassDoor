@@ -1,6 +1,7 @@
-<div class='basicInfo'>
+<div *ngIf='infoBasic'  class='basicInfo'>
     
     <h2>Basic Information</h2>
+
     <form [formGroup]='infoForm'>
         <div class="form-group">
             <label class ='name'>First Name</label>

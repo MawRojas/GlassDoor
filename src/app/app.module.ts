@@ -6,13 +6,10 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
-
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
@@ -31,6 +28,7 @@ import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.com
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { CloseAccountComponent } from './close-account/close-account.component';
 import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
+import { SingleAccountDetailsComponent } from './single-account-details/single-account-details.component';
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
@@ -39,13 +37,15 @@ const routes: Routes = [
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
   {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
   {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent},
-  {path:'account_settings', component:BasicInfoComponent},
+  {path:'account_settings', component:AccountInfoComponent},
   {path:'password_reset', component:PasswordComponent},
-  {path: 'account_info', component:UserSettingsComponent},
+  {path: 'account_info', component:AccountInfoComponent},
   {path:'notifications',component:EmailsAlertsComponent},
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
-  {path:'add_subscription',component:SubscriptionsComponent}
+  {path:'user_information', component: BasicInfoComponent},
+  {path:'email_preferences', component:EmailPreferencesComponent},
+  {path:'settings_home', component:UserSettingsComponent}
 ];
 
 @NgModule({
@@ -74,6 +74,7 @@ const routes: Routes = [
     SubscriptionsComponent,
     BasicInfoComponent,
     AccountInfoComponent,
+    SingleAccountDetailsComponent,
   ],
   imports: [
     BrowserModule,
