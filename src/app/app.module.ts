@@ -35,7 +35,6 @@ import { CloseAccountComponent } from './close-account/close-account.component';
 import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
 import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
 import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component';
-import { AwardsPipePipe } from './pipes/awards-pipe.pipe';
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
@@ -85,8 +84,7 @@ const routes: Routes = [
     AccountInfoComponent,
     CloseAccountComponent,
     SingleCompanyPhotosComponent,
-    SingleCompanyLogoComponent,
-    AwardsPipePipe
+    SingleCompanyLogoComponent
   ],
   imports: [
     BrowserModule,

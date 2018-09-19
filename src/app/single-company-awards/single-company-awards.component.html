@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAward">Add Award</button>
 
   </div>
-  <div class="card" style="width: 100%;" *ngFor="let award of company.company_awards | awardsPipe">
+  <div class="card" style="width: 100%;" *ngFor="let award of company.company_awards">
     <div class="card-body">
       <h5 class="card-title">{{ award.name }}</h5>
       <p class="card-text">Given by {{ award.source }} in {{ award.year }}</p>
