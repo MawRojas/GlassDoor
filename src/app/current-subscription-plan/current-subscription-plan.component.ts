@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SubscriptionsComponent } from '../subscriptions/subscriptions.component';
 
 @Component({
   selector: 'app-current-subscription-plan',
@@ -7,16 +8,15 @@ import { RouterModule, Routes } from '@angular/router';
   styleUrls: ['./current-subscription-plan.component.css']
 })
 export class CurrentSubscriptionPlanComponent implements OnInit {
+  showOptions:boolean=true;
   pageName='subscribe';
   activePage = "subscribe";
-  
+  showNewSub:boolean=true;
   constructor() { }
   
   ngOnInit() {
   }
-  onActivate(component) {
-    console.log(component.pageName);
-    console.log(component.id);
-    this.activePage = component.pageName;
+  addSubscription(){
+    this.showOptions=!this.showOptions;
   }
 }

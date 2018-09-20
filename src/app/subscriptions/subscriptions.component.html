@@ -1,3 +1,4 @@
+<div *ngIf="showSubscriptions">
 <div class='currentPlan'>
   <h6 class='current'>CURRENT PLAN</h6>
   <p><b>4 Job Slots</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $299/month</p>
@@ -30,13 +31,13 @@
 </div>
 <h2>Payment Method</h2>
 <div class='payment'>
-  <input type='radio' class='payment' name='current' value='visa'><b>VISA   **** **** **** 0030</b>   Exp:7/2022
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' class='payment' name='current' value='visa'>&nbsp;&nbsp;<b>VISA &nbsp;&nbsp;  **** **** **** 0030</b>&nbsp;&nbsp; Exp:7/2022
 </div>
-<button class='addPaymentButton' (click)='addPayment()'>+Add new Payment Method</button>
+<button class='addPaymentButton' (click)='addPayment()' >+Add new Payment Method</button>
 <p> By placing this order I agree to Glassdoor's Self Serve Products Terms. 
 Terms of Use, and Privacy Policy. Your subscription will automatically renew at the end of eah period. To cancel
 anytime, to to your Settings.
 </p>
 <button class='cancelButton' (click)='cancelAction()'>Cancel</button>
 <button class='updateButton' (click)='Update()'>Update Subscription</button>
-
+</div>

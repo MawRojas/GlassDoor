@@ -12,14 +12,19 @@
   </p>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-  <button class='cancel' (click)='cancelAction()'>Cancel Subscription</button>
-  <a a class='routerButton' routerLink='add_subscription'>Change Subscription</a>    
-
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
   <hr color='black'>
+  <button class='cancel' (click)='cancelAction()'>Cancel Subscription</button>
+  <button  class='routerButton' type='button' (click)='addSubscription()'>Change Subscription</button>
+  
+ 
   <p class='text'>Need to add or edit jobs? Go to the Employer Center to manage jobs</p>
   <p class='text'>Self Service Product Terms</p>
     
 
 </div>
+<br><br>
+<div class='newOptions'>
+  <div><app-subscriptions [showSubscriptions]='showOptions'></app-subscriptions></div>
+</div>
+

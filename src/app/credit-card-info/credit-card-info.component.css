@@ -1,12 +1,14 @@
 .form-control{
-    border: 1px solid #000000
+    border: 1px solid #000000;
+    width: 100%;
 }
 .cardName{
-    width:95%;
+    width:100%;
 }
 .cardNumber{
-    width:75%;
+    width:100%;
 }
+
 div,.head,.smallHead {
     display: inline-block;
 }

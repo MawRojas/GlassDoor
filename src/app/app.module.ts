@@ -1,25 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
+<<<<<<< HEAD
 import { OrderPipe } from './ngx-order.pipe';
+=======
+>>>>>>> master
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
 import { SingleCompanyAwardsComponent } from './single-company-awards/single-company-awards.component';
 import { SingleCompanyUpdatesComponent } from './single-company-updates/single-company-updates.component';
-
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { PaymentInfoComponent } from './payment-info/payment-info.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
@@ -33,9 +32,16 @@ import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.com
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { CloseAccountComponent } from './close-account/close-account.component';
 import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
+import { EmployeeReviewComponent } from './employee-review/employee-review.component';
+import { InterviewReviewComponent } from './interview-review/interview-review.component';
+import { RequestReviewComponent } from './request-review/request-review.component';
+import { SingleEmployeeReviewComponent } from './single-employee-review/single-employee-review.component';
+import { SingleInterviewReviewComponent } from './single-interview-review/single-interview-review.component';
+import { BillingInformationComponent } from './billing-information/billing-information.component';
+import { CreditCardInformationComponent } from './credit-card-information/credit-card-information.component';
 import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
-import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component';
 import { AwardsPipePipe } from './pipes/awards-pipe.pipe';
+<<<<<<< HEAD
 import { ApplicantsPipe } from './applicants.pipe';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { JobPerformanceTitleComponent } from './job-performance-title/job-performance-title.component';
@@ -44,10 +50,13 @@ import { JobPerformanceDayComponent } from './job-performance-day/job-performanc
 import { SlottedJobsComponent } from './slotted-jobs/slotted-jobs.component';
 import { UnslottedJobsComponent } from './unslotted-jobs/unslotted-jobs.component';
 
+=======
+import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component'
+>>>>>>> master
 
 //Add your routes here
 const routes: Routes = [
-  {path: 'company_details', component: CompanyDetailsComponent},
+  {path: 'company_details', component: CompanyDetailsComponent}
   {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
   {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
@@ -62,6 +71,7 @@ const routes: Routes = [
   {path:'notifications',component:EmailsAlertsComponent},
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
+<<<<<<< HEAD
   {path:'add_subscription',component:SubscriptionsComponent},
   {path: 'applicants', component: ApplicantsComponent},
   {path: 'job-performance-day', component: JobPerformanceDayComponent},
@@ -70,6 +80,19 @@ const routes: Routes = [
   {path: 'slotted-jobs', component: SlottedJobsComponent},
   {path: 'unslotted-jobs', component: UnslottedJobsComponent},
 ];
+=======
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'reviews', component: ReviewsComponent},
+  {path:'add_subscription',component:SubscriptionsComponent},
+  {path: 'employee_reviews', component: EmployeeReviewComponent},
+  {path: 'interview_reviews', component: InterviewReviewComponent},
+  {path: 'request_review', component: RequestReviewComponent},
+  {path: 'employee_reviews/:id', component:SingleEmployeeReviewComponent},
+  {path: 'interview_reviews/:id', component: SingleInterviewReviewComponent},
+  {path: 'billing_information', component:BillingInformationComponent},
+  {path: 'card_details', component:CreditCardInformationComponent}
+];  
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -79,6 +102,7 @@ const routes: Routes = [
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
+    UserSettingsComponent,
     RoutingComponentComponent,
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent,
@@ -99,6 +123,16 @@ const routes: Routes = [
     SubscriptionsComponent,
     BasicInfoComponent,
     AccountInfoComponent,
+    RoutingComponentComponent,
+    SingleCompanyDetailsComponent,
+    SingleCompanyDescriptionComponent,
+    EmployeeReviewComponent,
+    InterviewReviewComponent,
+    RequestReviewComponent,
+    SingleEmployeeReviewComponent,
+    SingleInterviewReviewComponent,
+    BillingInformationComponent,
+    CreditCardInformationComponent,
     CloseAccountComponent,
     SingleCompanyPhotosComponent,
     SingleCompanyLogoComponent,

@@ -1,0 +1,30 @@
+<div class="FormsModule">
+  <h2>Request More Reviews</h2>
+  <p>Invite current employees to provide honest feedback to help showcase your company's transparency. Only reviews count towards obtaining OpenCompany status.</p>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label>From:</label> 
+          <input type="text" class = "form-control" formControlName="from_sender"/>
+      </div>
+      <div class="form-group">
+          <label>To</label> 
+          <input type="text" class = "form-control" formControlName="to_recepient">
+      </div>
+      <div class="form-group">
+          <label class ='name'>What type of reviews do you want to request?</label><br>
+          <select class ='dropdown' name="type_review">
+                  <option value='employee'>Employee Review</option>
+                  <option value='interview'>Interview Review</option>
+              </select>
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" class = "form-control" formControlName="subject"/>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <input type="text" class = "form-control" formControlName="message"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>

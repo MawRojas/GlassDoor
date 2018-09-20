@@ -1,0 +1,26 @@
+<div>
+  <h2>Interview Review</h2>
+  <table class="table table-hover" *ngIf="int">
+    <tr>
+      <td><b>Job Title: </b>{{ int.job_title }}</td>
+    </tr>
+    <tr>
+      <td><b>Offer Type: </b>{{ int.offer_type }}</td>
+      <td><b>Interview Experience: </b>{{ int.interview_experience }}</td>
+    </tr>
+    <tr>
+      <td><b>Recruitment Source: </b>{{ int.recruitment_source }}</td>
+      <td><b>Interview Difficulty: </b>{{ int.interview_difficulty }}</td>
+    </tr>
+    <tr>
+        <td><b>Subject: </b>{{ int.subject }}</td>
+    </tr>
+    <tr>
+      <td><b>Message: </b></td>
+    </tr>
+    <tr>
+        <td>{{ int.message }}</td>
+    </tr>
+  </table>
+</div>
+  

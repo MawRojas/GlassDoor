@@ -9,10 +9,9 @@
     border: 1px solid #000000    
 }
 .bill{
-    color:lightgrey;
+    color:black;
 }
 .payment{
-    width:30%;
     border: 2px solid #000627 
 }
 .addPaymentButton{
@@ -26,7 +25,7 @@
     background: none;
 }
 .updateButton{
-    background-color: grey; 
+    background-color: blue; 
     color: white; 
     margin-left:5em;
     text-align: center; 

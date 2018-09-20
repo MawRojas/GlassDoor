@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { PasswordComponent } from '../password/password.component';
 
 @Component({
   selector: 'app-user-settings',
@@ -9,12 +10,14 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class UserSettingsComponent implements OnInit {
   infoForm:FormGroup;
   emailForm:FormGroup;
+  id: string;  
   passwordReset:FormGroup;
   email:string='';
   password:string='';
   newPassword:string='';
   pageName='user-info';
 
+  pwordReset:boolean=true;
   constructor(private formBuilder: FormBuilder) { }
   
   ngOnInit() {
@@ -28,8 +31,9 @@ export class UserSettingsComponent implements OnInit {
       newPassword:[null, Validators.required],
     });
   }
-  updatePassword(){
-    console.log("Password Changed")
+  passReset(){
+    this.pwordReset=!this.pwordReset;
   }
 
+  
 }

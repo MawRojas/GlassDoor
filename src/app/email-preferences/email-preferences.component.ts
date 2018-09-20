@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-email-preferences',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./email-preferences.component.css']
 })
 export class EmailPreferencesComponent implements OnInit {
-
-  constructor() { }
+  pageName='email-choices';
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  manageAll(){
+    this.router.navigate(['notifications']);
+  }
 }
