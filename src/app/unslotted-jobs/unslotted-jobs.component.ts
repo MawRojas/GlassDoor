@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UJobsService } from '../u-jobs.service';
 import { Observable } from 'rxjs';
+import { OrderPipe } from '../ngx-order.pipe';
 
 @Component({
   selector: 'app-unslotted-jobs',
@@ -13,7 +14,7 @@ export class UnslottedJobsComponent implements OnInit {
   ops = ['Newest First', 'Job Title A-Z']
   jobs$: Object;
 
-  constructor(private job: UJobsService) { }
+  constructor(private job: UJobsService, private orderPipe: OrderPipe) { }
 
   ngOnInit() {
     this.job.getJobs().subscribe(

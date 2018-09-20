@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SJobsService } from '../s-jobs.service';
 import { Observable } from 'rxjs';
+import { OrderPipe } from '../ngx-order.pipe';
 
 @Component({
   selector: 'app-slotted-jobs',
@@ -13,8 +14,14 @@ export class SlottedJobsComponent implements OnInit {
   jobs$: Object;
   ops = ['Newest First', 'Job Title A-Z']
   selectedOption2: null;
+  selectedOp: string = '';
 
-  constructor(private job: SJobsService ) { }
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedOp = event.target.value;
+  }
+
+  constructor(private job: SJobsService, private orderPipe: OrderPipe ) { }
 
   ngOnInit() {
     this.job.getJobs().subscribe(

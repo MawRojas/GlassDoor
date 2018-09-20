@@ -24,19 +24,44 @@
 </head>
 
 <div class="container-fluid" style="border:1px solid black;">
-    <div class="row">
-      <div class="col">
-        <p class="left">Unslotted Jobs</p>
-      </div>
-      <div class="col">
-            <div ng-app="slot_choice2" ng-controller="slot_Ctrl2">
-                <select ng-model="selectedOption">
-                     <option *ngFor="let o of ops" [ngValue]="y">{{o}}</option>
-                </select>
-                <p>You selected: <span ng-bind="selectedOption"></span> </p>
-            </div>
+  <div class="row">
+    <div class="col">
+      <p class="left">Unslotted Jobs</p>
+    </div>
+    <div class="col">
+      <div>
+        <select (change)="selectChangeHandler($event)">
+            <option value="Newest First">Newest First</option>
+            <option value="Job Title A-Z">Job Title A-Z</option>
+        </select>
+        <div *ngIf="selectedOp=='Job Title A-Z' ; else NewestFirst">
+          <div class="row">
+            <div class="col">
+               <table>
+                 <tr>
+                   <th>Job</th>
+                   <th>Days Sponsored</th>
+                 </tr>
+                 <tr *ngFor="let job of jobs$ | orderBy: 'name'">
+                  <div *ngIf="job.is_slotted">
+                   <td>
+                     {{job.name}}
+                     {{job.company}} 
+                     {{job.location}}
+                   </td>
+                   <td>
+                     {{job.days_sponsored}}
+                   </td>
+                   </div>
+                 </tr>
+               </table>
+             </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <ng-template #NewestFirst>
     <div class="row">
         <div class="col">
            <table>
@@ -48,14 +73,16 @@
               <div *ngIf="job.is_slotted==false">
                <td>
                  {{job.name}}
-                 {{job.company}} {{job.location}}
+                 {{job.company}} 
+                 {{job.location}}
                </td>
                <td>
                  {{job.date_posted}}
                </td>
-              </div>
+               </div>
              </tr>
            </table>
          </div>
-      </div>
+    </div>
+  </ng-template>
 </div>
