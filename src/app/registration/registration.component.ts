@@ -4,6 +4,7 @@ import { CompanyDetailsService } from '../services/company-details.service';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   companyNames: any;
   userForm: FormGroup;
 
-  constructor(private registrationService: RegistrationService, private companyService: CompanyDetailsService, private _formbuilder: FormBuilder ) { }
+  constructor(private registrationService: RegistrationService, private companyService: CompanyDetailsService, private _formbuilder: FormBuilder, private router: Router ) { }
 
   ngOnInit() {
     this.registrationService.getAll().subscribe((data) =>{
@@ -35,12 +36,23 @@ export class RegistrationComponent implements OnInit {
       state: [null, Validators.required],
       job_description: [null, Validators.required],
       street_address: [],
-      zipcode: []
+      zipcode: [null, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]
 	  })
   }
 
   onSubmit(){
-    console.log(this.userForm.value)
+    if (this.userForm.valid) {
+    const req = this.registrationService.postJob(this.userForm.value).subscribe(res => {
+      let id = res['_id'];
+    }, (err) => {
+      console.log(err);
+    })
+    this.userForm.reset();
+    this.router.navigateByUrl('/billing_information');
+  }
   }
 
+  ShowHide(){
+    console.log("ShowHide")
+  }
 }

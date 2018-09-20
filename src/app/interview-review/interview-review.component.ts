@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InterviewReviewService } from '../services/interview-review.service';
 
 @Component({
   selector: 'app-interview-review',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterviewReviewComponent implements OnInit {
 
-  constructor() { }
+  pageName = 'review-page';
+  intReviews: any;
+  constructor(private interviewReviewService: InterviewReviewService) { }
 
   ngOnInit() {
+    this.interviewReviewService.getAll().subscribe((data) =>{
+      this.intReviews = data;
+    });
   }
 
 }

@@ -31,6 +31,10 @@ import { SingleCompanyBenefitsComponent } from './single-company-benefits/single
 import { EmployeeReviewComponent } from './employee-review/employee-review.component';
 import { InterviewReviewComponent } from './interview-review/interview-review.component';
 import { RequestReviewComponent } from './request-review/request-review.component';
+import { SingleEmployeeReviewComponent } from './single-employee-review/single-employee-review.component';
+import { SingleInterviewReviewComponent } from './single-interview-review/single-interview-review.component';
+import { BillingInformationComponent } from './billing-information/billing-information.component';
+import { CreditCardInformationComponent } from './credit-card-information/credit-card-information.component';
 
 //Add your routes here
 const routes: Routes = [
@@ -48,10 +52,13 @@ const routes: Routes = [
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
   {path:'add_subscription',component:SubscriptionsComponent},
-  {path: 'card_details', component:CreditCardInfoComponent},
   {path: 'employee_reviews', component: EmployeeReviewComponent},
   {path: 'interview_reviews', component: InterviewReviewComponent},
   {path: 'request_review', component: RequestReviewComponent},
+  {path: 'employee_reviews/:id', component:SingleEmployeeReviewComponent},
+  {path: 'interview_reviews/:id', component: SingleInterviewReviewComponent},
+  {path: 'billing_information', component:BillingInformationComponent},
+  {path: 'card_details', component:CreditCardInformationComponent}
 ];  
 
 @NgModule({
@@ -86,7 +93,11 @@ const routes: Routes = [
     SingleCompanyDescriptionComponent,
     EmployeeReviewComponent,
     InterviewReviewComponent,
-    RequestReviewComponent
+    RequestReviewComponent,
+    SingleEmployeeReviewComponent,
+    SingleInterviewReviewComponent,
+    BillingInformationComponent,
+    CreditCardInformationComponent
 
 
   ],
