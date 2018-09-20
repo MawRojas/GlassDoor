@@ -5,10 +5,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
-<<<<<<< HEAD
 import { OrderPipe } from './ngx-order.pipe';
-=======
->>>>>>> master
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -52,7 +49,7 @@ import { SingleCompanyLogoComponent } from './single-company-logo/single-company
 
 //Add your routes here
 const routes: Routes = [
-  {path: 'company_details', component: CompanyDetailsComponent}
+  {path: 'company_details', component: CompanyDetailsComponent},
   {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
   {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
