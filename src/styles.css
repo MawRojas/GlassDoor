@@ -24,3 +24,11 @@ body {
     font-size: 15px;
     cursor: pointer;
 }
+
+.container {
+    padding: 3px;
+}
+
+.bg-white {
+    padding: 10px;
+}

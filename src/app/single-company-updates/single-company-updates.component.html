@@ -1,0 +1,23 @@
+<div class="bg-white" *ngIf="company">
+  <h1>Company Updates</h1>
+    <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+      <div class="d-flex flex-row">
+        <h5>Add a Company Update</h5>
+        <div style="width: 45%"></div>
+        <h6>Reach followers and visitors to your profile by publishing company news and updates</h6>
+      </div>
+      <div class="form-group d-flex flex-row">
+          <label>Add text and multimedia to your company updates</label>
+          <div class="container">
+              <div class="details d-flex justify-content-end">{{ getNumberCharacters("input-company-description") }}</div>
+              <div class="d-flex justify-content-end">
+                <textarea  (keyup)="getNumberCharacters('input-company-description')" ng-model="companyDescription" id="input-company-description" rows="5" cols="150" maxlength="1100"></textarea>
+              </div>
+          </div>
+      </div>
+      <div class="d-flex flex-row-reverse">
+          <div style="width: 5.5%"></div>
+          <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+    </form>
+</div>

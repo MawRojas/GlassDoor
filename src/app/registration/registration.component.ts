@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  pageName = 'post-job';
+  pageName = 'home';
   registrationList: any;
   companyNames: any;
   userForm: FormGroup;

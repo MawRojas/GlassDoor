@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class BillingInformationComponent implements OnInit {
   billingForm:FormGroup;  
-  pageName = 'post-job';
+  pageName = 'home';
   
   constructor(private formBuilder: FormBuilder, private billingInformationService: BillingInformationService, private router: Router) { }
   

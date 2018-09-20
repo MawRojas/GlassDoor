@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -7,10 +7,14 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./password.component.css']
 })
 export class PasswordComponent implements OnInit {
+
+  @Input() showPassword:boolean;
   passwordReset:FormGroup;  
   password:string='';
   newPassword:string='';
   pageName='password-reset';
+  id: string;  
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -20,6 +24,6 @@ export class PasswordComponent implements OnInit {
     });
   }
   onSubmit(){
-    console.log(this.passwordReset.value)
+    
   }
 }

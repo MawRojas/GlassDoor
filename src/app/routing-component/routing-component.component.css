@@ -111,3 +111,8 @@
 .menu-icon {
   cursor: pointer;
 }
+
+.selected {
+  background-color: #000;
+  color: white;
+}

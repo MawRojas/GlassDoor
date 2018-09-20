@@ -1,7 +1,6 @@
 <div class='billing'>
     <h4 class='bill'>Billing Address</h4>
-    
-    <form [formGroup]='billingForm'>
+    <form *ngIf="billingInfo" [formGroup]='billingForm'>
       <div class='form-group'>
         <label class='input'>Address Line 1</label>
         <input type="text" class="form-control-address" formControlName='address'>
@@ -9,8 +8,7 @@
       </div><br>
       <div class='form-group'>
         <label class='input'>Address Line 2</label>
-        <input type="text" class="form-control-address" formControlName='address'>
-        <div class="alert alert-danger" *ngIf="!billingForm.controls['address'].valid && billingForm.controls['address'].touched">Enter valid address</div>    
+        <input type="text" class="form-control-address">
       </div><br>
       <div class='countryField'>
         <label class='input'>Country</label>
@@ -35,6 +33,8 @@
         <div class="alert alert-danger" *ngIf="!billingForm.controls['zip'].valid && billingForm.controls['zip'].touched">Enter valid zip code</div>    
       </div>
     </form>
-    <br>
-    <br>
-    </div>
+</div>
+<br>
+<div class='credit_card_details'>
+  <div> <app-credit-card-info [showCreditCard]="showCard"></app-credit-card-info></div>
+</div>

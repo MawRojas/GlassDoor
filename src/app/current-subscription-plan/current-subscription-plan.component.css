@@ -14,11 +14,14 @@ button, .routerButton{
     font-size: 12px;
     width: 145px;
 }
-.current-subscription{
-    border: 1px solid #B65959;
-    width: 500px;
-}
+
 text{
     font-size: 10px;
     
+}
+.updateButton{
+    background-color: blue; 
+    color: white; 
+    margin-left:5em;
+    text-align: center; 
 }

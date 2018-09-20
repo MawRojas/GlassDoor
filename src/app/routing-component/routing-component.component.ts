@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-routing-component',
@@ -10,7 +11,8 @@ export class RoutingComponentComponent implements OnInit {
   collapseFlag: boolean = false;
   activePage = "home";
   companyID: string;
-  constructor() { }
+  selectedSectionID: string;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -35,10 +37,9 @@ export class RoutingComponentComponent implements OnInit {
   }
 
   onActivate(component) {
-    console.log(component.pageName);
-    console.log(component.id);
     this.activePage = component.pageName;
     this.companyID = component.id;
+    this.selectedSectionID = component.navbarID;
   }
 
 }

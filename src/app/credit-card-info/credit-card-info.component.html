@@ -1,6 +1,6 @@
 <br><br><br>
-
-<h3>Add New Card</h3>
+<div *ngIf='creditData && showCreditCard'>
+<h4 class='addCard'>Add New Card</h4>
 <div class='credit'>
 <h4 class='head'><b>Credit Card Information</b></h4>
 &nbsp;&nbsp;&nbsp;
@@ -35,5 +35,6 @@
   <p class= 'secure'>All information is encrypted and transmitted securelyusing SSL (Secure Socket Layer Protocol)&nbsp;&nbsp;</p>
 </div>
 <br>
-<button class='button' (click)='addPayment()'>Add This Payment Method</button><br>
+<button class='button' (click)='onSubmit()'>Add This Payment Method</button><br>
 <button class='cancel' (click)='cancelAction()'>Cancel</button>
+</div>

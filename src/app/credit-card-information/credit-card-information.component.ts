@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class CreditCardInformationComponent implements OnInit {
   creditCard:FormGroup;
-  pageName = 'post-job';
+  pageName = 'home';
   constructor(private formBuilder: FormBuilder, private creditCardInformationService: CreditCardInformationService, private router: Router) { }
 
   ngOnInit() {

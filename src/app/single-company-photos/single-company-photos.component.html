@@ -1,0 +1,42 @@
+<div *ngIf="company">
+    <div class="bg-white">
+        <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" *ngIf="company">
+          <h2>Photos</h2>
+          <h6>Add photos to display to your company profile. The Featured Photo will be the most prominent on your profile. Only photos uploaded by employer representatives can be edited or deleted</h6>
+          <div class="form-row">
+            <div class="col form-group">
+                <label>Select uploader</label>
+                <select class="form-control" formControlName="category">
+                    <option *ngFor="let option of photo_categories" [ngValue]="option">{{ option }}</option>
+                </select>
+            </div>
+              <div class="col form-group d-flex flex-row">
+                <div class="d-flex flex-column">
+                    <label>Select File</label>
+                    <label for="select-picture" class="btn btn-primary">Choose Picture</label>
+                    <input type="file" class="form-control" formControlName="source" (change)="onFileChanged($event)" id="select-picture" style="display: none"/>  
+                </div>
+                <div class="details" *ngIf="selectedFile">{{selectedFile.name}}</div>
+              </div>
+          </div>
+          <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+    </div>
+      
+    <div class="bg-white">
+      <h2>All Photos</h2>
+      <div class="d-flex flex-row">
+        <div id="employer-photos" class="category-selector selected" (click)="changeSelectedCategory('employer-photos')">Employer Photos</div>
+        <div style="width: 5%"></div>
+        <div id="community-photos" class="category-selector" (click)="changeSelectedCategory('community-photos')">Community Photos</div>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="container-picture" *ngFor="let photo of getPhotosList()">
+          <img [src]="getPhotoURL(photo.source)" alt="company photo" class="company-photo" (click)=removePhoto(photo.source)>
+        </div>
+      </div>
+    </div>
+</div>
+  
