@@ -41,7 +41,6 @@ import { BillingInformationComponent } from './billing-information/billing-infor
 import { CreditCardInformationComponent } from './credit-card-information/credit-card-information.component';
 import { SingleCompanyPhotosComponent } from './single-company-photos/single-company-photos.component';
 import { AwardsPipePipe } from './pipes/awards-pipe.pipe';
-<<<<<<< HEAD
 import { ApplicantsPipe } from './applicants.pipe';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { JobPerformanceTitleComponent } from './job-performance-title/job-performance-title.component';
@@ -49,10 +48,7 @@ import { JobSlotsComponent } from './job-slots/job-slots.component';
 import { JobPerformanceDayComponent } from './job-performance-day/job-performance-day.component';
 import { SlottedJobsComponent } from './slotted-jobs/slotted-jobs.component';
 import { UnslottedJobsComponent } from './unslotted-jobs/unslotted-jobs.component';
-
-=======
-import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component'
->>>>>>> master
+import { SingleCompanyLogoComponent } from './single-company-logo/single-company-logo.component';
 
 //Add your routes here
 const routes: Routes = [
@@ -71,7 +67,6 @@ const routes: Routes = [
   {path:'notifications',component:EmailsAlertsComponent},
   {path:'payment_settings', component:BillingAddressComponent},
   {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
-<<<<<<< HEAD
   {path:'add_subscription',component:SubscriptionsComponent},
   {path: 'applicants', component: ApplicantsComponent},
   {path: 'job-performance-day', component: JobPerformanceDayComponent},
@@ -79,8 +74,6 @@ const routes: Routes = [
   {path: 'job-slots', component: JobSlotsComponent},
   {path: 'slotted-jobs', component: SlottedJobsComponent},
   {path: 'unslotted-jobs', component: UnslottedJobsComponent},
-];
-=======
   {path: 'registration', component: RegistrationComponent},
   {path: 'reviews', component: ReviewsComponent},
   {path:'add_subscription',component:SubscriptionsComponent},
@@ -92,7 +85,6 @@ const routes: Routes = [
   {path: 'billing_information', component:BillingInformationComponent},
   {path: 'card_details', component:CreditCardInformationComponent}
 ];  
->>>>>>> master
 
 @NgModule({
   declarations: [
