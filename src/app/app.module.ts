@@ -132,7 +132,8 @@ const routes: Routes = [
     JobSlotsComponent,
     JobPerformanceDayComponent,
     SlottedJobsComponent,
-    UnslottedJobsComponent
+    UnslottedJobsComponent,
+    SingleCompanyLogoComponent
   ],
   imports: [
     BrowserModule,
