@@ -1,0 +1,22 @@
+div {
+    display: inline-block;
+}
+
+div label {
+    display: block;
+}
+input{
+    width:50%;
+}
+.form-control{
+    width:100%;
+    border: 1px solid #000000
+}
+.form-control-full-line{
+    width:250%;
+    border: 1px solid #000000
+}
+
+.smallHead, .input, .secure{
+    font-size: 12px;
+}

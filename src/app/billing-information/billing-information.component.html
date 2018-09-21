@@ -2,48 +2,51 @@
     <h4 class='bill'>Billing Address</h4>
     
     <form [formGroup]='billingForm' (ngSubmit)="onSubmit()">
-      <div class='first-name'>
+      <div class='form-group'>
         <br>
         <label class='input'>First Name: </label>
         <input type="text" class="form-control" formControlName='first_name'>
         <div class="alert alert-danger" *ngIf="!billingForm.controls['first_name'].valid && billingForm.controls['first_name'].touched">Enter Valid First Name</div>    
       </div>
-      <div class='last-name'>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class='form-group'>
           <label class='input'>Last Name: </label>
           <input type="text" class="form-control" formControlName='last_name'>
           <div class="alert alert-danger" *ngIf="!billingForm.controls['last_name'].valid && billingForm.controls['last_name'].touched">Enter Valid Last Name</div>    
         </div>
-      <div class='address'>
-          <br>
+        <br>
+      <div class='form-group'>
           <label class='input'>Address: </label>
-          <input type="text" class="form-control" formControlName='street_addr'>    
+          <input type="text" class="form-control-address" formControlName='street_addr'>    
           <div class="alert alert-danger" *ngIf="!billingForm.controls['street_addr'].valid && billingForm.controls['street_addr'].touched">Enter Valid Address</div>    
       </div>
-      <div class='countryField'>
+      <br>
+      <div class='form-group'>
         <label class='input'>Country: </label>
         <input type="text" class="form-control" formControlName='country'>    
         <div class="alert alert-danger" *ngIf="!billingForm.controls['country'].valid && billingForm.controls['country'].touched">Enter Valid Country</div>    
       </div>
-      <div class='stateField'>
-          <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class='form-group'>
         <label class='input'>State</label>
         <input type="text" class="form-control" formControlName='state'>
         <div class="alert alert-danger" *ngIf="!billingForm.controls['state'].valid && billingForm.controls['state'].touched">Enter valid state</div>    
       </div>
-      <div class='cityField'>
-          <br>
+      <br>
+      <div class='form-group'>
         <label class='input'>City: </label>
         <input type="text" class="form-control" formControlName='city'>
         <div class="alert alert-danger" *ngIf="!billingForm.controls['city'].valid && billingForm.controls['city'].touched">Enter valid city</div>    
       </div>  
-      <div class='zipCode'>
-          <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class='form-group'>
         <label class='input'>Zip/Postal Code</label>
         <input type="text" class="form-control" formControlName='zipcode'>
         <div class="alert alert-danger" *ngIf="!billingForm.controls['zipcode'].valid && billingForm.controls['zipcode'].touched">Enter valid zip code</div>    
       </div>
+      <br>
+      <br>
       <div>
-        <br>
       <button type="submit" class="btn btn-primary" [disabled]="!billingForm.valid">Continue</button>
       </div>
     </form>

@@ -1,0 +1,20 @@
+div {
+    display: inline-block;
+}
+div label {
+    display: block;
+}
+input{
+    width:50%;
+}
+.form-control{
+    width:100%;
+    border: 1px solid #000000
+}
+.form-control-address{
+    width:250%;
+    border: 1px solid #000000
+}
+.input{
+    font-size: 12px;
+}

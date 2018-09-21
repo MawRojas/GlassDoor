@@ -2,46 +2,41 @@
 <br>
 <div class='credit'>
 <h4 class='head'><b>Credit Card Information</b></h4>
-
 <p class='smallHead'>Your information is secure</p>
-<br>
   <form [formGroup]='creditCard' (ngSubmit)="onSubmit()">
-    <div class='cardName'>
-      <label class ='name'>Full Name on Card: </label>
-      <input type= 'text' class='form-control' formControlName='full_name_on_card'>
+    <div class='form-group'>
+      <label class ='input'>Full Name on Card: </label>
+      <input type= 'text' class='form-control-full-line' formControlName='full_name_on_card'>
       <div class="alert alert-danger" *ngIf="!creditCard.controls['full_name_on_card'].valid && creditCard.controls['full_name_on_card'].touched">Enter full Name</div>    
     </div>
-    <div class='cardNumber'>
-        <br>
-      <label class='name'>Credit Card Number: </label>
-      <input type='text' class='form-control' formControlName='credit_card_number'/>
+    <br>
+    <div class='form-group'>
+      <label class='input'>Credit Card Number: </label>
+      <input type='text' class='form-control-full-line' formControlName='credit_card_number'/>
       <div class="alert alert-danger" *ngIf="!creditCard.controls['credit_card_number'].valid && creditCard.controls['credit_card_number'].touched">Enter valid card number</div>
     </div>
-    <div class='expiration'>
-      <br>
-      <label class='name'>Expiration Date:</label>
-      <br>
-      <label class='name'>Expiration Month:   </label>
-      <input type='text' class='form-cotnrol' formControlName='exp_month'>
+    <br>
+    <div class='form-group'>
+      <label class='input'><b>Expiration Date:</b></label>
+      <label class='input'>Month:   </label>
+      <input type='text' class='form-control' formControlName='exp_month'>
       <div class="alert alert-danger" *ngIf="!creditCard.controls['exp_month'].valid && creditCard.controls['exp_month'].touched">Enter the Expiration Month</div>
+    </div>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label class='name'>Expiration Year:   </label>
-      <input type='text' class='form-cotnrol' formControlName='exp_Year'>
+    <div class='form-group'>
+      <label class='input'>Year:   </label>
+      <input type='text' class='form-control' formControlName='exp_Year'>
       <div class="alert alert-danger" *ngIf="!creditCard.controls['exp_Year'].valid && creditCard.controls['exp_Year'].touched">Enter the Expiration Year</div>
     </div>
-    <div class='num'>
       <br>
-      <label class='name'>CVC Code: </label>
-      <input type ='name' class= 'form-control' formControlName='cvc_code'>
+    <div class='form-group'>
+      <label class='input'>CVC Code: </label>
+      <input type ='text' class= 'form-control' formControlName='cvc_code'>
       <div class="alert alert-danger" *ngIf="!creditCard.controls['cvc_code'].valid && creditCard.controls['cvc_code'].touched">Enter CVC number </div>    
     </div>
+    <br>
+    <p class= 'secure'>All information is encrypted and transmitted securelyusing SSL (Secure Socket Layer Protocol)&nbsp;&nbsp;</p>
     <div>
-      <br>
-        <input type='checkbox' name='default' value='defaultPayment'>Set as default payment
-        <p class= 'secure'>All information is encrypted and transmitted securelyusing SSL (Secure Socket Layer Protocol)&nbsp;&nbsp;</p>
-    </div>
-    <div>
-        <br>
         <button type="submit" class="btn btn-primary" [disabled]="!creditCard.valid">Submit</button>
     </div>
   </form>
